@@ -41,37 +41,21 @@
 			<Add directory="lib" />
 		</Linker>
 		<Unit filename="adjuster.cpp" />
-		<Unit filename="button.cpp" />
 		<Unit filename="checkbox.cpp" />
-		<Unit filename="dynamictext.cpp" />
 		<Unit filename="include/adjuster.hpp">
-			<Option target="&lt;{~None~}&gt;" />
-		</Unit>
-		<Unit filename="include/button.hpp">
 			<Option target="&lt;{~None~}&gt;" />
 		</Unit>
 		<Unit filename="include/checkbox.hpp">
 			<Option target="&lt;{~None~}&gt;" />
 		</Unit>
-		<Unit filename="include/dynamictext.hpp">
-			<Option target="&lt;{~None~}&gt;" />
-		</Unit>
-		<Unit filename="include/selector.hpp">
-			<Option target="&lt;{~None~}&gt;" />
-		</Unit>
 		<Unit filename="include/statictext.hpp">
-			<Option target="&lt;{~None~}&gt;" />
-		</Unit>
-		<Unit filename="include/textdisplay.hpp">
 			<Option target="&lt;{~None~}&gt;" />
 		</Unit>
 		<Unit filename="include/widget.hpp">
 			<Option target="&lt;{~None~}&gt;" />
 		</Unit>
 		<Unit filename="main.cpp" />
-		<Unit filename="selector.cpp" />
 		<Unit filename="statictext.cpp" />
-		<Unit filename="textdisplay.cpp" />
 		<Unit filename="widget.cpp" />
 		<Extensions>
 			<code_completion />
