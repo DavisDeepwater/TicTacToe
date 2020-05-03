@@ -1,0 +1,159 @@
+# depslib dependency file v1.0
+1588107136 source:c:\users\david\desktop\suli\progi\2020\2. beadandó\main.cpp
+	"graphics.hpp"
+	"widget.hpp"
+	"adjuster.hpp"
+	"selector.hpp"
+	"statictext.hpp"
+	"dynamictext.hpp"
+	"textdisplay.hpp"
+	"button.hpp"
+	"checkbox.hpp"
+	<iostream>
+
+1488260528 c:\users\david\desktop\suli\progi\2020\2. beadandó\include\graphics.hpp
+	<string>
+
+1587319497 source:c:\users\david\desktop\suli\progi\2020\2. beadandó\adjuster.cpp
+	"widget.hpp"
+	"adjuster.hpp"
+	"graphics.hpp"
+
+1588106385 c:\users\david\desktop\suli\progi\2020\2. beadandó\include\widget.hpp
+	"graphics.hpp"
+
+1587319517 source:c:\users\david\desktop\suli\progi\2020\2. beadandó\widget.cpp
+	"widget.hpp"
+	"graphics.hpp"
+
+1587320107 c:\users\david\desktop\suli\progi\2020\2. beadandó\include\adjuster.hpp
+
+1587309578 source:c:\users\david\desktop\suli\progi\2020\2. beadandó\selector.cpp
+	"widget.hpp"
+	"selector.hpp"
+	"graphics.hpp"
+	<vector>
+
+1587320095 c:\users\david\desktop\suli\progi\2020\2. beadandó\include\selector.hpp
+	<vector>
+
+1588076858 source:c:\users\david\desktop\suli\progi\2020\2. beadandó\statictext.cpp
+	"graphics.hpp"
+	"statictext.hpp"
+
+1588106368 c:\users\david\desktop\suli\progi\2020\2. beadandó\include\statictext.hpp
+	"widget.hpp"
+
+1588087155 source:c:\users\david\desktop\suli\progi\2020\2. beadandó\dynamictext.cpp
+	"graphics.hpp"
+	"dynamictext.hpp"
+	<string>
+
+1588077923 c:\users\david\desktop\suli\progi\2020\2. beadandó\include\dynamictext.hpp
+	"widget.hpp"
+
+1588080836 c:\users\david\desktop\suli\progi\2020\2. beadandó\include\textdisplay.hpp
+	"widget.hpp"
+
+1588081533 source:c:\users\david\desktop\suli\progi\2020\2. beadandó\textdisplay.cpp
+	"widget.hpp"
+	"textdisplay.hpp"
+	"graphics.hpp"
+
+1588102966 source:c:\users\david\desktop\suli\progi\2020\2. beadandó\button.cpp
+	"widget.hpp"
+	"button.hpp"
+	"graphics.hpp"
+
+1588107337 c:\users\david\desktop\suli\progi\2020\2. beadandó\include\button.hpp
+	"graphics.hpp"
+	"widget.hpp"
+	<functional>
+
+1588087751 source:c:\users\david\desktop\suli\progi\2020\2. beadandó\checkbox.cpp
+	"checkbox.hpp"
+	"graphics.hpp"
+
+1588102919 c:\users\david\desktop\suli\progi\2020\2. beadandó\include\checkbox.hpp
+	"graphics.hpp"
+	"widget.hpp"
+
+1587319497 source:c:\users\david\desktop\suli\progi\2020\3. beadandó\adjuster.cpp
+	"widget.hpp"
+	"adjuster.hpp"
+	"graphics.hpp"
+
+1588106385 c:\users\david\desktop\suli\progi\2020\3. beadandó\include\widget.hpp
+	"graphics.hpp"
+
+1488260528 c:\users\david\desktop\suli\progi\2020\3. beadandó\include\graphics.hpp
+	<string>
+
+1587320107 c:\users\david\desktop\suli\progi\2020\3. beadandó\include\adjuster.hpp
+
+1588102966 source:c:\users\david\desktop\suli\progi\2020\3. beadandó\button.cpp
+	"widget.hpp"
+	"button.hpp"
+	"graphics.hpp"
+
+1588107337 c:\users\david\desktop\suli\progi\2020\3. beadandó\include\button.hpp
+	"graphics.hpp"
+	"widget.hpp"
+	<functional>
+
+1588537349 source:c:\users\david\desktop\suli\progi\2020\3. beadandó\checkbox.cpp
+	"checkbox.hpp"
+	"graphics.hpp"
+
+1588102919 c:\users\david\desktop\suli\progi\2020\3. beadandó\include\checkbox.hpp
+	"graphics.hpp"
+	"widget.hpp"
+
+1588087155 source:c:\users\david\desktop\suli\progi\2020\3. beadandó\dynamictext.cpp
+	"graphics.hpp"
+	"dynamictext.hpp"
+	<string>
+
+1588077923 c:\users\david\desktop\suli\progi\2020\3. beadandó\include\dynamictext.hpp
+	"widget.hpp"
+
+1588537487 source:c:\users\david\desktop\suli\progi\2020\3. beadandó\main.cpp
+	"graphics.hpp"
+	"widget.hpp"
+	"adjuster.hpp"
+	"statictext.hpp"
+	"dynamictext.hpp"
+	"checkbox.hpp"
+	<iostream>
+	<vector>
+
+1587320095 c:\users\david\desktop\suli\progi\2020\3. beadandó\include\selector.hpp
+	<vector>
+
+1588106368 c:\users\david\desktop\suli\progi\2020\3. beadandó\include\statictext.hpp
+	"widget.hpp"
+
+1588080836 c:\users\david\desktop\suli\progi\2020\3. beadandó\include\textdisplay.hpp
+	"widget.hpp"
+
+1587309578 source:c:\users\david\desktop\suli\progi\2020\3. beadandó\selector.cpp
+	"widget.hpp"
+	"selector.hpp"
+	"graphics.hpp"
+	<vector>
+
+1588076858 source:c:\users\david\desktop\suli\progi\2020\3. beadandó\statictext.cpp
+	"graphics.hpp"
+	"statictext.hpp"
+
+1588081533 source:c:\users\david\desktop\suli\progi\2020\3. beadandó\textdisplay.cpp
+	"widget.hpp"
+	"textdisplay.hpp"
+	"graphics.hpp"
+
+1587319517 source:c:\users\david\desktop\suli\progi\2020\3. beadandó\widget.cpp
+	"widget.hpp"
+	"graphics.hpp"
+
+1588537725 source:c:\users\david\desktop\suli\progi\2020\3. beadandó\gamemaster.cpp
+
