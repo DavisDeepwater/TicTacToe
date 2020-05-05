@@ -7,15 +7,16 @@
 class CheckBox : public Widget {
 protected:
     bool _checked;
+    bool is_x_pattern;
+    void circle_pattern();
+    void x_pattern();
 public:
-    CheckBox(int x, int y, int sx, int sy);
+    CheckBox(int x, int y, int sx, int sy, bool is_x_pattern = false);
     virtual void draw() ;
     virtual void event_handler(genv::event ev);
     virtual bool is_checked() ;
-    void toggle()
-    {
-        _checked = !_checked;
-    }
+    void check();
+    void set_x_pattern(bool is_x_pattern);
 };
 
 
