@@ -17,6 +17,7 @@ public:
     virtual bool is_checked() ;
     void check();
     void set_x_pattern(bool is_x_pattern);
+    bool get_x_pattern();
 };
 
 

@@ -73,6 +73,7 @@ public:
             */
             gt->event_handler(ev);
             gt->draw();
+            cout << gt->is_gameover() <<endl;
 
             gout << refresh;
         }

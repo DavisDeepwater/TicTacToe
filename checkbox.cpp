@@ -79,6 +79,11 @@ void CheckBox::set_x_pattern(bool is_x_pattern)
     this->is_x_pattern = is_x_pattern;
 }
 
+bool CheckBox::get_x_pattern()
+{
+    return is_x_pattern;
+}
+
 void CheckBox::event_handler(event ev)
 {
     if (ev.type == ev_mouse && is_selected(ev.pos_x, ev.pos_y) && ev.button==btn_left)
