@@ -63,10 +63,12 @@ void GameTable::event_handler(event ev)
 
 void GameTable::calculate_match_count(int element_x, int element_y)
 {
+    int match_counter_antidiagonal = calculate_row(element_x, element_y, Direction::antidiagonal);
+    int match_counter_diagonal = calculate_row(element_x, element_y, Direction::diagonal);
     int match_counter_vertical = calculate_row(element_x, element_y, Direction::vertical);
     int match_counter_horizontal = calculate_row(element_x, element_y, Direction::horizontal);
-    int match_counter_diagonal = calculate_row(element_x, element_y, Direction::diagonal);
-    int match_counter_antidiagonal = calculate_row(element_x, element_y, Direction::antidiagonal);
+
+
 
     match_count = std::max({match_counter_antidiagonal, match_counter_diagonal, match_counter_horizontal,match_counter_vertical});
 
@@ -82,16 +84,17 @@ int GameTable::calculate_row(int element_x, int element_y, Direction direction)
     bool* is_x_increase;
     bool* is_y_increase;
 
-    is_x_increase = direction == Direction::horizontal || direction == Direction::diagonal?new bool(true):nullptr;
+    is_x_increase = direction == Direction::horizontal || direction == Direction::diagonal || direction == antidiagonal ?new bool(true):nullptr;
     is_y_increase = direction == Direction::vertical || direction == Direction::diagonal?new bool(true):nullptr;
     is_y_increase = is_y_increase == nullptr && direction == antidiagonal?new bool(false):is_y_increase;
 
-
     int x = element_x;
     int y = element_y;
+    int c = 0;
 
     for(int i = element_x + 1; i < table_size; i++)
     {
+        c++;
         if( is_x_increase != nullptr)
         {
             x = *is_x_increase?i:table_size-i;
@@ -99,19 +102,23 @@ int GameTable::calculate_row(int element_x, int element_y, Direction direction)
 
         if(is_y_increase != nullptr)
         {
-            y = *is_y_increase?abs(i-element_y):table_size-i;
+            y = *is_y_increase?element_y+c:element_y-c;
         }
 
-
+        if(y < 0 || y >= table_size)
+        {
+            break;
+        }
         if(!table[x][y]->is_checked() || table[x][y]->get_x_pattern() != is_x_pattern)
         {
             break;
         }
         match_counter_helper++;
     }
-
+    c = 0;
     for(int i = element_x - 1; i > 0; i--)
     {
+        c--;
         if( is_x_increase != nullptr)
         {
             x = *is_x_increase?i:table_size-i;
@@ -119,9 +126,13 @@ int GameTable::calculate_row(int element_x, int element_y, Direction direction)
 
         if(is_y_increase != nullptr)
         {
-            y = *is_y_increase?abs(i-element_y):table_size-i;
+            y = *is_y_increase?element_y+c:element_y-c;
         }
 
+        if(y < 0 || y >= table_size)
+        {
+            break;
+        }
         if( !table[x][y]->is_checked() || table[x][y]->get_x_pattern() != is_x_pattern)
         {
             break;

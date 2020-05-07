@@ -86,7 +86,7 @@ bool CheckBox::get_x_pattern()
 
 void CheckBox::event_handler(event ev)
 {
-    if (ev.type == ev_mouse && is_selected(ev.pos_x, ev.pos_y) && ev.button==btn_left)
+    if (ev.type == ev_mouse && ev.button==btn_left && is_selected(ev.pos_x, ev.pos_y))
     {
         _checked = true;
     }

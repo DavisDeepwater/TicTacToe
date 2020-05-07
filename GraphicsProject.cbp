@@ -42,11 +42,15 @@
 		</Linker>
 		<Unit filename="adjuster.cpp" />
 		<Unit filename="checkbox.cpp" />
+		<Unit filename="gamemaster.cpp" />
 		<Unit filename="gametable.cpp" />
 		<Unit filename="include/adjuster.hpp">
 			<Option target="&lt;{~None~}&gt;" />
 		</Unit>
 		<Unit filename="include/checkbox.hpp">
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="include/gamemaster.hpp">
 			<Option target="&lt;{~None~}&gt;" />
 		</Unit>
 		<Unit filename="include/gametable.hpp" />
