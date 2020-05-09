@@ -157,7 +157,7 @@
 
 1588537725 source:c:\users\david\desktop\suli\progi\2020\3. beadandó\gamemaster.cpp
 
-1587319497 source:c:\users\david\desktop\suli\progi\2020\tictactoe\adjuster.cpp
+1589052994 source:c:\users\david\desktop\suli\progi\2020\tictactoe\adjuster.cpp
 	"widget.hpp"
 	"adjuster.hpp"
 	"graphics.hpp"
@@ -168,13 +168,13 @@
 1488260528 c:\users\david\desktop\suli\progi\2020\tictactoe\include\graphics.hpp
 	<string>
 
-1587320107 c:\users\david\desktop\suli\progi\2020\tictactoe\include\adjuster.hpp
+1589052942 c:\users\david\desktop\suli\progi\2020\tictactoe\include\adjuster.hpp
 
-1588884152 source:c:\users\david\desktop\suli\progi\2020\tictactoe\checkbox.cpp
+1589051827 source:c:\users\david\desktop\suli\progi\2020\tictactoe\checkbox.cpp
 	"checkbox.hpp"
 	"graphics.hpp"
 
-1588881788 c:\users\david\desktop\suli\progi\2020\tictactoe\include\checkbox.hpp
+1589051691 c:\users\david\desktop\suli\progi\2020\tictactoe\include\checkbox.hpp
 	"graphics.hpp"
 	"widget.hpp"
 
@@ -186,22 +186,13 @@
 1588077923 c:\users\david\desktop\suli\progi\2020\tictactoe\include\dynamictext.hpp
 	"widget.hpp"
 
-1588888374 source:c:\users\david\desktop\suli\progi\2020\tictactoe\main.cpp
-	"graphics.hpp"
-	"widget.hpp"
-	"adjuster.hpp"
-	"statictext.hpp"
-	"dynamictext.hpp"
-	"checkbox.hpp"
-	"gametable.hpp"
+1589046349 source:c:\users\david\desktop\suli\progi\2020\tictactoe\main.cpp
 	"gamecontroller.hpp"
-	<iostream>
-	<vector>
 
-1588106368 c:\users\david\desktop\suli\progi\2020\tictactoe\include\statictext.hpp
+1589058100 c:\users\david\desktop\suli\progi\2020\tictactoe\include\statictext.hpp
 	"widget.hpp"
 
-1588076858 source:c:\users\david\desktop\suli\progi\2020\tictactoe\statictext.cpp
+1589058161 source:c:\users\david\desktop\suli\progi\2020\tictactoe\statictext.cpp
 	"graphics.hpp"
 	"statictext.hpp"
 
@@ -220,30 +211,48 @@
 	"checkbox.hpp"
 	<vector>
 
-1588885088 source:c:\users\david\desktop\suli\progi\2020\tictactoe\gametable.cpp
+1589057910 source:c:\users\david\desktop\suli\progi\2020\tictactoe\gametable.cpp
 	"gametable.hpp"
 	<algorithm>
 	<initializer_list>
 	<iostream>
 
-1588799850 c:\users\david\desktop\suli\progi\2020\tictactoe\include\gametable.hpp
+1589056334 c:\users\david\desktop\suli\progi\2020\tictactoe\include\gametable.hpp
 	"graphics.hpp"
 	"widget.hpp"
 	"checkbox.hpp"
-	<vector>
-
-1588888477 c:\users\david\desktop\suli\progi\2020\tictactoe\include\gamecontroller.hpp
-	"statictext.hpp"
-	"dynamictext.hpp"
-	"checkbox.hpp"
-	"gametable.hpp"
 	<iostream>
 	<vector>
 
-1588888553 source:c:\users\david\desktop\suli\progi\2020\tictactoe\gamecontroller.cpp
+1589058523 c:\users\david\desktop\suli\progi\2020\tictactoe\include\gamecontroller.hpp
+	"widget.hpp"
+	"statictext.hpp"
+	"dynamictext.hpp"
+	"checkbox.hpp"
+	"adjuster.hpp"
+	"statictext.hpp"
+	"gametable.hpp"
+	"button.hpp"
+	<iostream>
+	<vector>
+
+1589058591 source:c:\users\david\desktop\suli\progi\2020\tictactoe\gamecontroller.cpp
 	"graphics.hpp"
 	"widget.hpp"
 	"adjuster.hpp"
 	"gamecontroller.hpp"
 	"gametable.hpp"
+	"button.hpp"
+
+1589042999 source:c:\users\david\desktop\suli\progi\2020\tictactoe\menu.cpp
+
+1589052491 source:c:\users\david\desktop\suli\progi\2020\tictactoe\button.cpp
+	"widget.hpp"
+	"button.hpp"
+	"graphics.hpp"
+
+1589051470 c:\users\david\desktop\suli\progi\2020\tictactoe\include\button.hpp
+	"graphics.hpp"
+	"widget.hpp"
+	<functional>
 

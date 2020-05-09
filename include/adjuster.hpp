@@ -5,11 +5,13 @@ class Num_adj : public Widget
 {
 protected:
     int _ib,_iu;
-    int _count = 0;
+    int _count;
 public:
     Num_adj(int x, int y, int sx, int sy, int ib, int iu);
     virtual void draw();
     virtual void event_handler(genv::event ev);
+    int get_count();
+    void set_count(int _count);
 };
 
 #endif // ADJUSTER_HPP_INCLUDED

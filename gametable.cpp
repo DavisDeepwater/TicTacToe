@@ -6,21 +6,42 @@ using namespace genv;
 
 GameTable::GameTable(int x, int y, int sx, int sy, int _size) : Widget(x,y,sx,sy)
 {
+    checkbox_x = sx/_size;
+    checkbox_y = sy/_size;
+    table_size = _size;
+    init();
+}
+
+void GameTable::init()
+{
     CheckBox* c;
     is_first_player = true;
-    int checkbox_x = sx/_size;
-    int checkbox_y = sy/_size;
-    table_size = _size;
+
     match_count = 0;
-    for(int i = 0; i < _size; i++)
+    for(int i = 0; i < table_size; i++)
     {
         table.push_back(vector<CheckBox*>());
-        for(int j = 0; j < _size; j++)
+        for(int j = 0; j < table_size; j++)
         {
             c = new CheckBox(i * checkbox_x,j * checkbox_y,checkbox_x,checkbox_y);
             table[i].push_back(c);
         }
     }
+}
+
+
+void GameTable::delete_table()
+{
+    for(int i = 0; i < table_size; i++)
+    {
+        for(int j = 0; j < table_size; j++)
+        {
+           delete table[i][j];
+        }
+        table[i].clear();
+    }
+    table.clear();
+    clear_draw();
 }
 
 void GameTable::draw()
@@ -32,10 +53,20 @@ void GameTable::draw()
             table[i][j]->draw();
         }
     }
+
+}
+
+void GameTable::clear_draw()
+{
+    gout << color(0,0,0) << move_to(_x,_y) << box(_sx,_sy);
 }
 
 void GameTable::event_handler(event ev)
 {
+    if(is_gameover())
+    {
+        return;
+    }
 
     for(int i = 0; i < table_size; i++)
     {
@@ -47,16 +78,33 @@ void GameTable::event_handler(event ev)
                 if(!table[i][j]->is_checked() )
                 {
                     table[i][j]->set_x_pattern(is_first_player);
-                    is_first_player = !is_first_player;
+
                     table[i][j]->check();
                     calculate_match_count(i,j);
+                    if(!is_gameover())
+                    {
+                        is_first_player = !is_first_player;
+                    }
                 }
-
                 return;
             }
         }
     }
 
+}
+
+bool GameTable::set_size(int table_size)
+{
+    if(is_blank())
+    {
+        delete_table();
+        checkbox_x = _sx/table_size;
+        checkbox_y = _sy/table_size;
+        this->table_size = table_size;
+        init();
+        return true;
+    }
+    return false;
 }
 
 
@@ -140,6 +188,42 @@ int GameTable::calculate_row(int element_x, int element_y, Direction direction)
         match_counter_helper++;
     }
     return match_counter_helper;
+}
+
+void GameTable::reset()
+{
+    is_first_player = true;
+    match_count = 0;
+    for(int i = 0; i < table_size; i++)
+    {
+        for(int j = 0; j < table_size; j++)
+        {
+            if(table[i][j]->is_checked() )
+            {
+                table[i][j]->uncheck();
+            }
+        }
+    }
+}
+
+bool GameTable::is_blank()
+{
+    for(int i = 0; i < table_size; i++)
+    {
+        for(int j = 0; j < table_size; j++)
+        {
+            if(table[i][j]->is_checked() )
+            {
+               return false;
+            }
+        }
+    }
+    return true;
+}
+
+bool GameTable::is_firstplayer()
+{
+    return is_first_player;
 }
 
 bool GameTable::is_gameover()

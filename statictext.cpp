@@ -11,3 +11,14 @@ void StaticText::draw()
     gout << move_to(_x, _y) << color(255,204,0) << genv::text(text);
 }
 
+void StaticText::clear_text()
+{
+    gout << move_to(_x, _y) << color(0,0,0) << genv::text(text);
+}
+
+void StaticText::set_text(std::string _t)
+{
+    clear_text();
+    this->text = _t;
+}
+

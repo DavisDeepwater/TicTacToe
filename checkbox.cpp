@@ -97,6 +97,11 @@ void CheckBox::check()
     _checked = true;
 }
 
+void CheckBox::uncheck()
+{
+    _checked = false;
+}
+
 bool CheckBox::is_checked()
 {
     return _checked;

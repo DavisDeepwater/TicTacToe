@@ -4,6 +4,7 @@
 #include "graphics.hpp"
 #include "widget.hpp"
 #include "checkbox.hpp"
+#include <iostream>
 #include <vector>
 using namespace std;
 using namespace genv;
@@ -19,13 +20,19 @@ private:
         diagonal,
         antidiagonal
     };
-
+    int checkbox_x;
+    int checkbox_y;
     bool is_first_player;
     int table_size;
     vector<vector<CheckBox*>> table;
     int match_count;
     void calculate_match_count(int element_x, int element_y);
     int calculate_row(int element_x, int element_y, Direction direction);
+
+    void init();
+    void delete_table();
+    void clear_draw();
+
 protected:
     bool _checked;
 public:
@@ -34,7 +41,10 @@ public:
     virtual void draw() ;
     virtual void event_handler(genv::event ev);
     bool is_gameover();
-
+    void reset();
+    bool is_blank();
+    bool set_size(int table_size);
+    bool is_firstplayer();
 };
 
 

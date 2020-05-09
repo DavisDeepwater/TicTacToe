@@ -16,6 +16,7 @@ public:
     virtual void event_handler(genv::event ev);
     bool is_checked() ;
     void check();
+    void uncheck();
     void set_x_pattern(bool is_x_pattern);
     bool get_x_pattern();
 };

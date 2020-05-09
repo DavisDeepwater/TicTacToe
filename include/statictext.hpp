@@ -3,6 +3,7 @@
 #include "widget.hpp"
 
 class StaticText : public Widget{
+     void clear_text();
 protected:
     std::string text;
 public:
@@ -10,6 +11,7 @@ public:
     virtual void draw() override;
     void event_handler(genv::event ev) override;
     bool is_selected(int mouse_x, int mouse_y);
+    void set_text(std::string _t);
 };
 
 #endif // STATICTEXT_HPP_INCLUDED

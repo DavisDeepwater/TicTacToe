@@ -7,6 +7,7 @@ Num_adj::Num_adj(int x, int y, int sx, int sy, int ib, int iu) : Widget(x,y,sx,s
 {
     _ib = ib;
     _iu = iu;
+    _count = 15;
     selected = false;
 }
 
@@ -80,4 +81,14 @@ void Num_adj::event_handler(event ev)
             _count-=10;
         }
     }
+}
+
+int Num_adj::get_count()
+{
+    return _count;
+}
+
+void Num_adj::set_count(int _count)
+{
+    this->_count = _count;
 }
