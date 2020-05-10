@@ -1,8 +1,2 @@
 
-obj/Debug/gamefield.o
-obj/Debug/gamemaster.o
-obj/Debug/checkbox.o
-obj/Debug/adjuster.o
-obj/Debug/checkbox.o
-obj/Debug/gamemaster.o
 *.o
