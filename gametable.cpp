@@ -20,7 +20,7 @@ void GameTable::init()
     match_count = 0;
     for(int i = 0; i < table_size; i++)
     {
-        table.push_back(vector<CheckBox*>());
+        table.push_back(std::vector<CheckBox*>());
         for(int j = 0; j < table_size; j++)
         {
             c = new CheckBox(i * checkbox_x,j * checkbox_y,checkbox_x,checkbox_y);
@@ -44,7 +44,7 @@ void GameTable::delete_table()
     clear_draw();
 }
 
-void GameTable::draw()
+void GameTable::draw() const
 {
     for(int i = 0; i < table_size; i++)
     {
@@ -56,7 +56,7 @@ void GameTable::draw()
 
 }
 
-void GameTable::clear_draw()
+void GameTable::clear_draw() const
 {
     gout << color(0,0,0) << move_to(_x,_y) << box(_sx,_sy);
 }
@@ -111,20 +111,19 @@ bool GameTable::set_size(int table_size)
 
 void GameTable::calculate_match_count(int element_x, int element_y)
 {
+    int match_counter_vertical = calculate_row(element_x, element_y, Direction::vertical);
     int match_counter_antidiagonal = calculate_row(element_x, element_y, Direction::antidiagonal);
     int match_counter_diagonal = calculate_row(element_x, element_y, Direction::diagonal);
-    int match_counter_vertical = calculate_row(element_x, element_y, Direction::vertical);
     int match_counter_horizontal = calculate_row(element_x, element_y, Direction::horizontal);
-
-
-
     match_count = std::max({match_counter_antidiagonal, match_counter_diagonal, match_counter_horizontal,match_counter_vertical});
-
-
-
 }
 
-int GameTable::calculate_row(int element_x, int element_y, Direction direction)
+bool GameTable::is_check_index(int x, int y) const
+{
+    return x>=0 && x<table_size && y>=0 && y<table_size;
+}
+
+int GameTable::calculate_row(int element_x, int element_y, Direction direction) const
 {
     int match_counter_helper = 1;
     bool is_x_pattern = table[element_x][element_y]->get_x_pattern();
@@ -132,56 +131,54 @@ int GameTable::calculate_row(int element_x, int element_y, Direction direction)
     bool* is_x_increase;
     bool* is_y_increase;
 
-    is_x_increase = direction == Direction::horizontal || direction == Direction::diagonal || direction == antidiagonal ?new bool(true):nullptr;
+    is_x_increase = direction != Direction::vertical?new bool(true):nullptr;
     is_y_increase = direction == Direction::vertical || direction == Direction::diagonal?new bool(true):nullptr;
     is_y_increase = is_y_increase == nullptr && direction == antidiagonal?new bool(false):is_y_increase;
 
     int x = element_x;
     int y = element_y;
-    int c = 0;
+    int i = 0;
+    int j = 0;
 
-    for(int i = element_x + 1; i < table_size; i++)
+    while(x < table_size || y < table_size)
     {
-        c++;
         if( is_x_increase != nullptr)
         {
-            x = *is_x_increase?i:table_size-i;
+            i++;
+            x = *is_x_increase?element_x+i:element_x-i;
         }
 
         if(is_y_increase != nullptr)
         {
-            y = *is_y_increase?element_y+c:element_y-c;
+            j++;
+            y = *is_y_increase?element_y+j:element_y-j;
         }
 
-        if(y < 0 || y >= table_size)
-        {
-            break;
-        }
-        if(!table[x][y]->is_checked() || table[x][y]->get_x_pattern() != is_x_pattern)
+        if(!is_check_index(x,y) || !table[x][y]->is_checked() || table[x][y]->get_x_pattern() != is_x_pattern)
         {
             break;
         }
         match_counter_helper++;
     }
-    c = 0;
-    for(int i = element_x - 1; i > 0; i--)
+
+     i = 0;
+     j = 0;
+
+    while(x > 0 || y > 0)
     {
-        c--;
         if( is_x_increase != nullptr)
         {
-            x = *is_x_increase?i:table_size-i;
+            i--;
+            x = *is_x_increase?element_x+i:element_x-i;
         }
 
         if(is_y_increase != nullptr)
         {
-            y = *is_y_increase?element_y+c:element_y-c;
+            j--;
+            y = *is_y_increase?element_y+j:element_y-j;
         }
 
-        if(y < 0 || y >= table_size)
-        {
-            break;
-        }
-        if( !table[x][y]->is_checked() || table[x][y]->get_x_pattern() != is_x_pattern)
+        if(!is_check_index(x,y) || !table[x][y]->is_checked() || table[x][y]->get_x_pattern() != is_x_pattern)
         {
             break;
         }
@@ -206,13 +203,13 @@ void GameTable::reset()
     }
 }
 
-bool GameTable::is_blank()
+bool GameTable::is_blank() const
 {
     for(int i = 0; i < table_size; i++)
     {
         for(int j = 0; j < table_size; j++)
         {
-            if(table[i][j]->is_checked() )
+            if(table[i][j]->is_checked())
             {
                return false;
             }
@@ -221,12 +218,27 @@ bool GameTable::is_blank()
     return true;
 }
 
-bool GameTable::is_firstplayer()
+bool GameTable::is_full() const
+{
+     for(int i = 0; i < table_size; i++)
+    {
+        for(int j = 0; j < table_size; j++)
+        {
+            if(!table[i][j]->is_checked())
+            {
+               return false;
+            }
+        }
+    }
+    return true;
+}
+
+bool GameTable::is_firstplayer() const
 {
     return is_first_player;
 }
 
-bool GameTable::is_gameover()
+bool GameTable::is_gameover() const
 {
     return match_count >= final_count;
 }

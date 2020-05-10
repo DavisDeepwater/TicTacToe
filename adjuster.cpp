@@ -11,7 +11,7 @@ Num_adj::Num_adj(int x, int y, int sx, int sy, int ib, int iu) : Widget(x,y,sx,s
     selected = false;
 }
 
-void Num_adj::draw()
+void Num_adj::draw() const
 {
 
     gout << move_to(_x,_y) << color(0,255,255) << box(_sx, _sy);
@@ -83,7 +83,7 @@ void Num_adj::event_handler(event ev)
     }
 }
 
-int Num_adj::get_count()
+int Num_adj::get_count() const
 {
     return _count;
 }

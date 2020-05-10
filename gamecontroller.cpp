@@ -1,9 +1,5 @@
 #include "graphics.hpp"
-#include "widget.hpp"
-#include "adjuster.hpp"
 #include "gamecontroller.hpp"
-#include "gametable.hpp"
-#include "button.hpp"
 using namespace genv;
 
 
@@ -16,20 +12,20 @@ GameController::GameController(int X, int Y)
 
 void GameController::start_game(int table_size)
 {
-    a = new Num_adj(width-110,62, 70, 30, 15,30);
+    a = new Num_adj(width-110,110, 70, 30, 15,30);
     a->set_count(table_size);
     v.push_back(a);
 
     gt = new GameTable(0,0,width-(width-height),height,table_size);
     v.push_back(gt);
 
-    b = new Button(width-150,200,100,25,"Reset",[&]()
+    b = new Button(width-150,240,100,25,"Reset",[&]()
     {
         reset_game();
     });
     v.push_back(b);
 
-    b2 = new Button(width-150,130,100,25,"Change",[&]()
+    b2 = new Button(width-150,180,100,25,"Change",[&]()
     {
         gt->set_size(a->get_count());
     });
@@ -38,17 +34,18 @@ void GameController::start_game(int table_size)
     st = new StaticText(width-140,30,"TicTacToe");
     v.push_back(st);
 
-    st2 = new StaticText(width-160,80,"Size:");
+    st2 = new StaticText(width-160,130,"Size:");
     v.push_back(st2);
 
-    st3 = new StaticText(width-160,400,"Winner: ");
+    st3 = new StaticText(width-177,80,"Winner:");
     v.push_back(st3);
 
-    st4 = new StaticText(width-100,400,"");
+    st4 = new StaticText(width-110,80,"");
     v.push_back(st4);
 
-    b3 = new Button(width-150,270,100,25,"Exit",[&]()
-    {is_stopped = true;
+    b3 = new Button(width-150,300,100,25,"Exit",[&]()
+    {
+        is_stopped = true;
     });
     v.push_back(b3);
 
@@ -61,10 +58,7 @@ void GameController::reset_game()
     gt->reset();
 }
 
-
-
-
-void GameController::run()
+void GameController::run() const
 {
     int selected = -1;
     event ev;
@@ -91,11 +85,19 @@ void GameController::run()
         if (selected!=-1 )
         {
             v[selected]->event_handler(ev);
+            std::string s;
             if (typeid(*v[selected]) == typeid(GameTable) && gt->is_gameover())
-                    {
-                        std::string s = gt->is_firstplayer()?"x":"o";
-                        st4->set_text(s);
-                    }
+            {
+                s = gt->is_firstplayer()?"'x'":"'o'";
+                st4->set_text(s);
+            }
+
+            if(typeid(*v[selected]) == typeid(GameTable) && gt->is_full())
+            {
+                s = "draw";
+                st4->set_text(s);
+            }
+
         }
         for(Widget* w : v)
         {

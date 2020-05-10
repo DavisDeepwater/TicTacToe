@@ -6,12 +6,12 @@ StaticText::StaticText(int x, int y, std::string _t) : Widget(x,y,genv::gout.twi
 
 void StaticText::event_handler(genv::event) {}
 
-void StaticText::draw()
+void StaticText::draw() const
 {
     gout << move_to(_x, _y) << color(255,204,0) << genv::text(text);
 }
 
-void StaticText::clear_text()
+void StaticText::clear_text() const
 {
     gout << move_to(_x, _y) << color(0,0,0) << genv::text(text);
 }

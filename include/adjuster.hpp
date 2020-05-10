@@ -8,9 +8,9 @@ protected:
     int _count;
 public:
     Num_adj(int x, int y, int sx, int sy, int ib, int iu);
-    virtual void draw();
+    virtual void draw() const;
     virtual void event_handler(genv::event ev);
-    int get_count();
+    int get_count() const;
     void set_count(int _count);
 };
 

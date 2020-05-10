@@ -5,7 +5,7 @@ using namespace genv;
 Widget::Widget(int x, int y, int sx, int sy) : _x(x), _y(y), _sx(sx), _sy(sy){
 }
 
-bool Widget::is_selected(int ex, int ey)
+bool Widget::is_selected(int ex, int ey) const
 {
      if(ex>_x && ex<_x+_sx && ey>_y && ey<_y+_sy)
      {

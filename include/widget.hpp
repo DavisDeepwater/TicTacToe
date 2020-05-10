@@ -9,8 +9,8 @@ protected:
     bool selected;
 public:
     Widget(int x, int y, int sx, int sy);
-    bool is_selected(int ex, int ey);
-    virtual void draw() = 0;
+    bool is_selected(int ex, int ey) const;
+    virtual void draw() const = 0;
     virtual void event_handler(genv::event ev) = 0;
     void set_selected(bool selected);
 };
